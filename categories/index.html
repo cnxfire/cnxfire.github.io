@@ -74,6 +74,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="PP的Hexo Blog！" type="application/atom+xml" />
 
@@ -621,7 +623,13 @@
 })(jQuery)
 $(document).ready(function() {
     CnxfireBlog.init();
+    $('.algolia-hit-item-link').click(function(){
+    $('.popup').hide();
+    $('.algolia-pop-overlay').remove();
+    $('body').css('overflow', '');
 })
+})
+
 </script>
 
   
