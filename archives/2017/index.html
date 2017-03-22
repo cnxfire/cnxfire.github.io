@@ -604,11 +604,10 @@
                 'pjax:end': function() {
                     NProgress.done();
                     self.blogBootUp();
-                    self.loadcomments();
                     console.log('archives/2017/index.html');
                 }
             })
-            self.loadcomments();
+            //self.loadcomments();
         },
         blogBootUp: function() {
             NexT.utils.registerBackToTop()
@@ -630,11 +629,13 @@
                         dsq.async = true;
                         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        $("#load-disqus").remove();
                     })();
                 } else { //若 Disqus 已经加载过，则重置，加载对应页面的评论
                     DISQUS.reset({
                         reload: true
                     });
+                    $("#load-disqus").remove();
                 }
             }
         }
